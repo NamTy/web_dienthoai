@@ -14,7 +14,7 @@
 
     <!-- Css Styles -->
     <link rel="stylesheet" href="{{ asset('auth/css/bootstrap.min.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('auth/css/font-awesome.min.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('auth/css/font-awesome.min.css)}}" type="text/css">
     <link rel="stylesheet" href="{{ asset('auth/css/elegant-icons.css')}}" type="text/css">
     <link rel="stylesheet" href="{{ asset('auth/css/nice-select.css')}}" type="text/css">
     <link rel="stylesheet" href="{{ asset('auth/css/jquery-ui.min.css')}}" type="text/css">
@@ -692,14 +692,14 @@
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->
-    <script src="{{ asset('auth/js/jquery-3.3.1.min.js')}}"></script>
-    <script src="{{ asset('auth/js/bootstrap.min.js')}}"></script>
-    <script src="{{ asset('auth/js/jquery.nice-select.min.js')}}"></script>
-    <script src="{{ asset('auth/js/jquery-ui.min.js')}}"></script>
-    <script src="{{ asset('auth/js/jquery.slicknav.js')}}"></script>
-    <script src="{{ asset('auth/js/mixitup.min.js')}}"></script>
-    <script src="{{ asset('auth/js/owl.carousel.min.js')}}"></script>
-    <script src="{{ asset('auth/js/main.js')}}"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/mixitup.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
 
 
 
