@@ -6,19 +6,10 @@
 </head>
 
 <body>
-   @include('auth.layout.header');
-   @yield('content');
 
-    <!-- Footer Section Begin -->
+    @yield('content');
     @include('auth.layout.footer');
-
-    <!-- Footer Section End -->
-
-    <!-- Js Plugins -->
     @include('auth.layout.js');
-
-
-
 </body>
 
 </html>
