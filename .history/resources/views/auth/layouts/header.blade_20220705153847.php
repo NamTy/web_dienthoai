@@ -37,18 +37,18 @@
             <div class="col-lg-6">
                 <nav class="header__menu">
                     <ul>
-                        <li class="active"><a href="{{route('home')}}">Trang Chủ</a></li>
-                        <li><a href="{{route('product')}}">Sản Phẩm</a></li>
+                        <li class="active"><a href="./index.html">Trang Chủ</a></li>
+                        <li><a href="./shop-grid.html">Sản Phẩm</a></li>
                         <li><a href="#">Danh mục</a>
                             <ul class="header__menu__dropdown">
-                                <li><a href="{{route('shop-details')}}">Chi tiết sản phẩm</a></li>
-                                <li><a href="{{route('shoping-cart')}}">Giỏ hàng</a></li>
-                                <li><a href="{{route('checkout')}}">Thanh toán</a></li>
-                                <li><a href="{{route('blog_details')}}">Tin tức về sản phẩm</a></li>
+                                <li><a href="./shop-details.html">Chi tiết sản phẩm</a></li>
+                                <li><a href="./shoping-cart.html">Giỏ hàng</a></li>
+                                <li><a href="./checkout.html">Thanh toán</a></li>
+                                <li><a href="./blog-details.html">Tin tức về sản phẩm</a></li>
                             </ul>
                         </li>
-                        <li><a href="{{route('blog')}}">Tin Tức</a></li>
-                        <li><a href="{{route('contact')}}">Liên Hệ</a></li>
+                        <li><a href="./blog.html">Tin Tức</a></li>
+                        <li><a href="./contact.html">Liên Hệ</a></li>
                     </ul>
                 </nav>
             </div>

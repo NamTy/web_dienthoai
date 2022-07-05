@@ -21,6 +21,5 @@ Route::get('/shop-grid',[HomeController::class,'product'])->name('product');
 Route::get('list/shop-details',[HomeController::class,'product_detail'])->name('shop-details');
 Route::get('list/shoping-cart.',[HomeController::class,'product_cart'])->name('shoping-cart');
 Route::get('list/checkout',[HomeController::class,'product_checkout'])->name('checkout');
-Route::get('list/blog-details',[HomeController::class,'blog_detail'])->name('blog_details');
-Route::get('/blog',[HomeController::class,'blog'])->name('blog');
-Route::get('/contact',[HomeController::class,'contact'])->name('contact');
+Route::get('list/blog-details',[HomeController::class,'product'])->name('product');
+Route::get('/shop-grid',[HomeController::class,'product'])->name('product');

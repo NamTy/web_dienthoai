@@ -43,11 +43,11 @@
                             <ul class="header__menu__dropdown">
                                 <li><a href="{{route('shop-details')}}">Chi tiết sản phẩm</a></li>
                                 <li><a href="{{route('shoping-cart')}}">Giỏ hàng</a></li>
-                                <li><a href="{{route('checkout')}}">Thanh toán</a></li>
+                                <li><a href="{{route('product_checkout')}}">Thanh toán</a></li>
                                 <li><a href="{{route('blog_details')}}">Tin tức về sản phẩm</a></li>
                             </ul>
                         </li>
-                        <li><a href="{{route('blog')}}">Tin Tức</a></li>
+                        <li><a href="{{route('blogs')}}">Tin Tức</a></li>
                         <li><a href="{{route('contact')}}">Liên Hệ</a></li>
                     </ul>
                 </nav>

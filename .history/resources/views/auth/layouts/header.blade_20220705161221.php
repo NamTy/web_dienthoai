@@ -47,7 +47,7 @@
                                 <li><a href="{{route('blog_details')}}">Tin tức về sản phẩm</a></li>
                             </ul>
                         </li>
-                        <li><a href="{{route('blog')}}">Tin Tức</a></li>
+                        <li><a href="{{route('blogs')}}">Tin Tức</a></li>
                         <li><a href="{{route('contact')}}">Liên Hệ</a></li>
                     </ul>
                 </nav>

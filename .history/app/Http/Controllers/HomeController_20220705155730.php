@@ -25,14 +25,14 @@ class HomeController extends Controller
         return view('auth.list.shop-checkout');
     }
     public function blog_detail(){
-        return view('auth.list.blog-details');
+        return view('auth.layout.list.blog-details');
     }
 
     public function blog(){
-        return view('auth.blog.blog');
+        return view('auth.layout.blog.blog');
     }
 
     public function contact(){
-        return view('auth.contact.contact');
+        return view('auth.layout.contact.contact');
     }
 }
