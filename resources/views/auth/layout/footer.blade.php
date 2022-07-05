@@ -5,7 +5,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__about__logo">
-                            <a href="./index.html"><img src="img/logoDN.png" alt=""></a>
+                            <a href="./index.html"><img src="{{ asset('auth/img/logoDN.png')}}" alt=""></a>
                         </div>
                         <ul>
                             <li>Quán Gánh - Nhị Khê - Thường Tín - Hà Nội</li>
@@ -52,7 +52,7 @@
                     <div class="footer__copyright">
                         <div class="footer__copyright__text"><p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://www.facebook.com/123Oh.No" target="_blank">Thành Đạt</a>
 </p></div>
-                        <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
+                        <div class="footer__copyright__payment"><img src="{{ asset('auth/img/payment-item.png')}}" alt=""></div>
                     </div>
                 </div>
             </div>

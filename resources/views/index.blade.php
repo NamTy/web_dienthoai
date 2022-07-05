@@ -636,7 +636,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__about__logo">
-                            <a href="./index.html"><img src="img/logoDN.png" alt=""></a>
+                            <a href="./index.html"><img src="{{ asset('auth/img/logoDN.png')}}" alt=""></a>
                         </div>
                         <ul>
                             <li>Quán Gánh - Nhị Khê - Thường Tín - Hà Nội</li>
