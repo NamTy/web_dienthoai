@@ -18,6 +18,6 @@ class CreateRoleSeeder extends Seeder
             ['name'=>'guest','display_name'=>'Khách hàng'],
             ['name'=>'developer','display_name'=>'Phát triển hệ thống'],
             ['name'=>'content', 'display_name'=>'Chỉnh sửa nội dung']
-        ])
+        ]);
     }
 }
