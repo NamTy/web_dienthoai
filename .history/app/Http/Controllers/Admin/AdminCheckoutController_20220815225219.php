@@ -68,7 +68,7 @@ class AdminCheckoutController extends Controller
     }
     public function done_order($id)
     {
-        try {
+        /*   try {
             DB::beginTransaction();
             // Thêm dữ liệu vào done_orders
             $dataOrder = $this->order->find($id);
@@ -78,16 +78,17 @@ class AdminCheckoutController extends Controller
                 'shipping_id' => $dataOrder->shipping_id,
                 'order_total' => $dataOrder->order_total,
                 'order_status' => "Đã xác nhận",
-            ]);
-            // $shipping = $this->order->find($id)->shipping;
-            // Thực hiện gửi mail xác nhận đơn hàng
-            // $mailable = new DoneOrderMail($id);
-            // Mail::to('namphieu123@gmail.com')->send($mailable);
-            $type = 'print.bill';
-            $this->sendMail_done_order($id, $type);
-            // Xóa dữ liệu bảng orders
-            $this->order->find($id)->delete();
-            DB::commit();
+            ]); */
+        // $shipping = $this->order->find($id)->shipping;
+        // Thực hiện gửi mail xác nhận đơn hàng
+        // $mailable = new DoneOrderMail($id);
+        // Mail::to('namphieu123@gmail.com')->send($mailable);
+        $type = 'print.bill';
+        $this->sendMail_done_order($id, $type);
+        // Xóa dữ liệu bảng orders
+        $this->order->find($id)->delete();
+        $order = Order::find($id)->delete();
+        /*  DB::commit();
             return response()->json([
                 'code' => 200,
                 'message' => "sucsset"
@@ -99,7 +100,7 @@ class AdminCheckoutController extends Controller
                 'code' => 500,
                 'message' => 'fail'
             ], 500);
-        }
+        } */
     }
     public function sendMail_done_order($id, $type = 'mail.done_order')
     {

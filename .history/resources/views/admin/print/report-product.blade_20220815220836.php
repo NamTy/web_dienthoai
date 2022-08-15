@@ -17,17 +17,21 @@
             src: url({{ asset('./print/fonts/Roboto-Italic.ttf') }}) format('truetype');
             src: url({{ asset('./print/fonts/Roboto-Bold.ttf') }}) format('truetype');
         }
+
         table {
             width: 80%;
         }
+
         table,
         th,
         td {
             border: 1px solid black;
             border-collapse: collapse;
         }
-        th,td{
-            padding: 10px;
+
+        th,
+        td {
+            padding:0px 10px;
         }
     </style>
 </head>
@@ -48,7 +52,11 @@
                     </p>
                     <p>Liên 1: Lưu</p>
                 </div>
-
+                <div class="col-md-4">
+                    <h5>Mẫu số: </h5>
+                    <p>Ký hiệu: </p>
+                    <p>Số: </p>
+                </div>
             </div>
         </div>
         <div class="content">
@@ -64,36 +72,44 @@
                 <thead>
                     <tr>
                         <th scope="col">STT</th>
-                        <th scope="col">Mã Hóa Đơn</th>
-                        <th scope="col">Số tiền thanh toán</th>
-                        <th scope="col">Thơi gian lập hóa đơn</th>
+                        <th scope="col">Mã Hóa đơn</th>
+                        <th scope="col">Mã Sản Phẩm</th>
+                        <th scope="col">Tên Sản Phẩm</th>
+                        <th scope="col">Số Lượng</th>
+                        <th scope="col">Giá Bán</th>
+                        <th scope="col">Thanh Toán</th>
+                        <th scope="col">Thời Gian</th>
+
                     </tr>
                 </thead>
                 <tbody>
                     @php
-                        $totalReport = 0;
+                        $totalProduct = 0;
                     @endphp
-                    @foreach ($reports as $key => $report)
+                    @foreach ($products as $key => $product)
                         @php
-                            $totalReport += floatval(implode(explode(',', $report->order_total)));
+                            $totalProduct += floatval(implode(explode(',', $product->product_discount)));
                         @endphp
                         <tr>
                             <td scope="row">{{ $key + 1 }}</td>
-                            <td scope="row">{{ $report->order_id }}</td>
-                            <td scope="row" class="text-right">{{ $report->order_total }} vnđ</td>
-                            <td scope="row" class="text-right">{{ $report->created_at }}</td>
+                            <td>{{ $product->order_id }}</td>
+                            <td>{{ $product->product_id }}</td>
+                            <td>{{ $product->product_name }}</td>
+                            <td>{{ $product->product_qty }}</td>
+                            <td>{{ $product->product_discount }}</td>
+                            <td class="text-right">
+                                {{ $product->product_qty * floatval(implode(explode(',', $product->product_discount))) }}
+                                vnđ</td>
+                            <td class="text-right">{{ $product->created_at }}</td>
                         <tr>
                     @endforeach
-                    <td colspan="2">Tổng Doanh thu</td>
-                    <td>{{ number_format($totalReport) }} vnđ</td>
-                    <td>
-
-                    </td>
+                    <td colspan="6">Tổng Doanh thu</td>
+                    <td colspan="2">{{ number_format($totalProduct) }} vnđ</td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <div class="footer" style="float: right; margin-right: 200px">
+        <div class="footer">
             <div class="row">
                 <div class="col-md-4 text-center">
                     <strong></strong>
@@ -115,3 +131,4 @@
 </body>
 
 </html>
+{{ dd("Nam") }}

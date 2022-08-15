@@ -66,11 +66,11 @@
             <div class="gach"></div>
             <div class="gach mgb-10"></div>
             <p><strong>Họ và tên người mua
-                    hàng:</strong><span>{{ $order_by_id->shipping_name }} ({{ $user->name }})</span></p>
+                    hàng:</strong><span>{{ $shipping->shipping_name }} ({{ $user->name }})</span></p>
             <p><strong>Tên đơn vị:</strong><span>..........................................................</span></p>
             <p><strong>Mã số thuế:</strong><span>..........................................................</span></p>
             <p><strong>Địa
-                    chỉ:</strong><span>{{ $order_by_id->shipping_address }}</span>
+                    chỉ:</strong><span>{{ $shipping->shipping_address }}</span>
             </p>
             <p><strong>Hình thức thanh
                     toán:</strong><span>Tiền mặt</span></p>

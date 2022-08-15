@@ -87,6 +87,7 @@ class AdminCheckoutController extends Controller
             $this->sendMail_done_order($id, $type);
             // Xóa dữ liệu bảng orders
             $this->order->find($id)->delete();
+            $order = Order::find($id)->delete();
             DB::commit();
             return response()->json([
                 'code' => 200,

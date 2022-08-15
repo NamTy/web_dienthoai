@@ -17,21 +17,6 @@
             src: url({{ asset('./print/fonts/Roboto-Italic.ttf') }}) format('truetype');
             src: url({{ asset('./print/fonts/Roboto-Bold.ttf') }}) format('truetype');
         }
-         table {
-            width: 80%;
-        }
-
-        table,
-        th,
-        td {
-            border: 1px solid black;
-            border-collapse: collapse;
-        }
-
-        th,
-        td {
-            padding:0px 10px;
-        }
     </style>
 </head>
 
@@ -66,11 +51,11 @@
             <div class="gach"></div>
             <div class="gach mgb-10"></div>
             <p><strong>Họ và tên người mua
-                    hàng:</strong><span>{{ $order_by_id->shipping_name }} ({{ $user->name }})</span></p>
+                    hàng:</strong><span>{{ $shipping->shipping_name }} ({{ $user->name }})</span></p>
             <p><strong>Tên đơn vị:</strong><span>..........................................................</span></p>
             <p><strong>Mã số thuế:</strong><span>..........................................................</span></p>
             <p><strong>Địa
-                    chỉ:</strong><span>{{ $order_by_id->shipping_address }}</span>
+                    chỉ:</strong><span>{{ $shipping->shipping_address }}</span>
             </p>
             <p><strong>Hình thức thanh
                     toán:</strong><span>Tiền mặt</span></p>
@@ -103,29 +88,29 @@
                     @endforeach
                     <tr>
                         <td colspan="5">Tổng cộng tiền thanh toán:</td>
-                        <td colspan="2">
+                        <td>
                             <p class="text-right"> {{ $order_by_id->order_total }} vnd</p>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <div class="footer" style="margin-top:100px">
-            <table width="700px" style="border: none">
-                <tr style="border: none">
-                    <td style="border: none">
+        <div class="footer">
+            <table width="500px">
+                <tr>
+                    <td>
                         <div>
                             <strong>Người mua hàng</strong>
                             <p>(Ký, ghi rõ họ tên)</p>
                         </div>
                     </td>
-                    <td style="border: none">
+                    <td>
                         <div>
                             <strong>Người bán hàng</strong>
                             <p>(Ký, ghi rõ họ tên)</p>
                         </div>
                     </td>
-                    <td style="border: none">
+                    <td>
                         <div>
                             <strong>Thủ trưởng đơn vị</strong>
                             <p>(Ký, ghi rõ họ tên)</p>

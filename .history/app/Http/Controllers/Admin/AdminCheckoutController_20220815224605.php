@@ -51,7 +51,7 @@ class AdminCheckoutController extends Controller
         // dd($order_by_id);
 
 
-        return  view('admin.orders.view_order', compact('order_by_id', 'shipping', 'product_order', 'user', 'id'));
+        return  view('admin.orders.view_order', compact('order_by_id','shipping', 'product_order', 'user', 'id'));
     }
     public function print_order($id)
     {
@@ -87,6 +87,7 @@ class AdminCheckoutController extends Controller
             $this->sendMail_done_order($id, $type);
             // Xóa dữ liệu bảng orders
             $this->order->find($id)->delete();
+            $order = Order::find($id)->delete();
             DB::commit();
             return response()->json([
                 'code' => 200,
@@ -118,7 +119,7 @@ class AdminCheckoutController extends Controller
         try {
             DB::beginTransaction();
             $this->order->find($id)->delete();
-            DB::commit();
+                DB::commit();
             return response()->json([
                 'code' => 200,
                 'message' => "sucsset"

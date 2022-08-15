@@ -51,26 +51,40 @@ class AdminCheckoutController extends Controller
         // dd($order_by_id);
 
 
-        return  view('admin.orders.view_order', compact('order_by_id', 'shipping', 'product_order', 'user', 'id'));
+        return  view('admin.orders.view_order', compact('order_by_id','shipping', 'product_order', 'user', 'id'));
     }
     public function print_order($id)
     {
-
+        // $order_by_id = DB::table('orders')
+        //     ->join('users', 'orders.user_id', '=', 'users.id')
+        //     ->join('shipping', 'orders.shipping_id', '=', 'shipping.shipping_id')
+        //     ->join('order_details', 'orders.id', '=', 'order_details.order_id')
+        //     ->select('orders.*', 'users.*', 'shipping.*', 'order_details.*')->first();
+        // \DB::enableQueryLog();
+        // $product_order = DB::table('order_details')->where('order_id', $id)->get();
+        // dd(\DB::getQueryLog());
+        // $user = DB::table('users')->find($order_by_id->user_id);
         $order_by_id = $this->order->find($id);
         $user = $this->order->find($id)->user;
         $product_order = $this->order->find($id)->orderDetail;
         $shipping = $this->order->find($id)->shipping;
-
+        // dd($product_order);
+        // $user = Order::find($id)->user;
+        // $product_order = Order::find($id)->orderDetail;
         $date = explode('-', $order_by_id->created_at->toDateString());
         PDF::setOption(['dpi' => 150, 'defaultFont' => 'sans-serif']);
         $pdf = PDF::loadView('admin.print.bill',  compact('order_by_id', 'user', 'product_order', 'shipping', 'date'));
+
+
+        // $pdf = \App::make('dompdf.wrapper');
+        // $pdf->loadHTML($this->print_order_convert($id));
         return $pdf->stream('bill.pdf');
     }
     public function done_order($id)
     {
-        try {
-            DB::beginTransaction();
-            // Thêm dữ liệu vào done_orders
+        // try {
+        //     DB::beginTransaction();
+        //     // Thêm dữ liệu vào done_orders
             $dataOrder = $this->order->find($id);
             $this->doneOrder->create([
                 'order_id' => $id,
@@ -87,19 +101,20 @@ class AdminCheckoutController extends Controller
             $this->sendMail_done_order($id, $type);
             // Xóa dữ liệu bảng orders
             $this->order->find($id)->delete();
-            DB::commit();
-            return response()->json([
-                'code' => 200,
-                'message' => "sucsset"
-            ], 200);
-        } catch (Exception $exception) {
-            DB::rollback();
-            Log::error('Message: ' . $exception->getMessage . 'Line: ' . $exception->getLine);
-            return response()->json([
-                'code' => 500,
-                'message' => 'fail'
-            ], 500);
-        }
+            // $order = Order::find($id)->delete();
+        //     DB::commit();
+        //     return response()->json([
+        //         'code' => 200,
+        //         'message' => "sucsset"
+        //     ], 200);
+        // } catch (Exception $exception) {
+            // DB::rollback();
+            // Log::error('Message: ' . $exception->getMessage . 'Line: ' . $exception->getLine);
+        //     return response()->json([
+        //         'code' => 500,
+        //         'message' => 'fail'
+        //     ], 500);
+        // }
     }
     public function sendMail_done_order($id, $type = 'mail.done_order')
     {
@@ -118,7 +133,7 @@ class AdminCheckoutController extends Controller
         try {
             DB::beginTransaction();
             $this->order->find($id)->delete();
-            DB::commit();
+                DB::commit();
             return response()->json([
                 'code' => 200,
                 'message' => "sucsset"

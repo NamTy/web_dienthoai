@@ -41,12 +41,13 @@ class DoneOrderMail extends Mailable
             ->select('orders.*', 'users.*', 'shipping.*', 'order_details.*')->first();
         $product_order = DB::table('order_details')->where('order_id', $this->order_id)->get();
         $user = DB::table('users')->find($order_by_id->user_id);
-        // dd($order_by_id);
+        $shipping = $this->order->find($this->order_id)->shipping;
         $dateNow = Carbon::now('Asia/Ho_Chi_Minh');
         $date = explode('-', $dateNow->format('Y-m-d'));
         return $this
             ->subject('Hóa đơn xác nhận đặt hàng')
-            ->view('admin.'.$this->type,compact('order_by_id', 'user', 'product_order','date'));
+
+            ->view('admin.'.$this->type,compact('order_by_id', 'user', 'product_order','date', 'shipping'));
             // ->view('admin.print.bill',compact('order_by_id', 'user', 'product_order')); xác nhận đơn hàng
             // ->view('admin.mail.done_order',compact('order_by_id', 'user', 'product_order'));báo giá đơn hàng
 

@@ -48,7 +48,11 @@
                     </p>
                     <p>Liên 1: Lưu</p>
                 </div>
-
+                <div class="col-md-4">
+                    <h5>Mẫu số: </h5>
+                    <p>Ký hiệu: </p>
+                    <p>Số: </p>
+                </div>
             </div>
         </div>
         <div class="content">
@@ -79,9 +83,9 @@
                         @endphp
                         <tr>
                             <td scope="row">{{ $key + 1 }}</td>
-                            <td scope="row">{{ $report->order_id }}</td>
-                            <td scope="row" class="text-right">{{ $report->order_total }} vnđ</td>
-                            <td scope="row" class="text-right">{{ $report->created_at }}</td>
+                            <td>{{ $report->order_id }}</td>
+                            <td class="text-right">{{ $report->order_total }} vnđ</td>
+                            <td class="text-right">{{ $report->created_at }}</td>
                         <tr>
                     @endforeach
                     <td colspan="2">Tổng Doanh thu</td>

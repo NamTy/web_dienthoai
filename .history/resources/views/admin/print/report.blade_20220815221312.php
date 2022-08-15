@@ -81,7 +81,7 @@
                             <td scope="row">{{ $key + 1 }}</td>
                             <td scope="row">{{ $report->order_id }}</td>
                             <td scope="row" class="text-right">{{ $report->order_total }} vnđ</td>
-                            <td scope="row" class="text-right">{{ $report->created_at }}</td>
+                            <td scope="col" class="text-right">{{ $report->created_at }}</td>
                         <tr>
                     @endforeach
                     <td colspan="2">Tổng Doanh thu</td>
