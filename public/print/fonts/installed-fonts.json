@@ -1,8 +1,8 @@
 {
     "roboto": {
-        "normal": "roboto_normal_ad06012202b9fc144cb985f4275bf1e1",
+        "normal": "D:\\laragon\\www\\web_dienthoai\\public\/print\/fonts\/roboto_normal_ad06012202b9fc144cb985f4275bf1e1",
         "bold": "D:\\laragon\\www\\web_dienthoai\\vendor\\dompdf\\dompdf\/lib\/fonts\/Roboto-Italic",
         "italic": "D:\\laragon\\www\\web_dienthoai\\vendor\\dompdf\\dompdf\/lib\/fonts\/Roboto-Regular",
-        "bold_italic": "D:\\laragon\\www\\web_dienthoai\\vendor\\dompdf\\dompdf\/lib\/fonts\/Roboto-Bold"
+        "bold_italic": "roboto_bold_italic_ad06012202b9fc144cb985f4275bf1e1"
     }
 }
