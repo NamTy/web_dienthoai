@@ -9,17 +9,16 @@
 
     <div class="container-fluid py-4">
         <div class=row>
-            <div class="col-6">
-                <form action="{{ route('products.import') }}" method="post" enctype="multipart/form-data">
-                    @csrf
-                    <input type="file" name="file_import" accept="xlsx">
-                    <input type="submit" value="Nhập dữ liệu" name="import_csv" class="btn btn-secondary">
-                </form>
-            </div>
-            <div class="col-6 d-flex justify-content-end align-items-center">
-                <a href="{{ route('products.create') }}" class="btn btn-success">
-                    ADD</a>
-            </div>
+            <div class="col-6"></div>
+                <div>
+                    <form action="{{ route('products.import')}}" method="post" enctype="multipart/form-data"></form>
+                </div>
+            {{-- @can('product_add') --}}
+                <div class="col-6 d-flex justify-content-end align-items-center">
+                    <a href="{{ route('products.create') }}" class="btn btn-success">
+                        ADD</a>
+                </div>
+            {{-- @endcan --}}
         </div>
         <div class="card">
             <div class="table-responsive">
@@ -27,8 +26,7 @@
                     <thead>
                         <tr>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID</th>
-                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Tên sản
-                                phẩm
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Tên sản phẩm
                             </th>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Hình ảnh
                             </th>
@@ -74,13 +72,13 @@
                                 </td>
                                 <td class="align-middle text-center text-sm">
                                     {{-- @can('product_edit') --}}
-                                    <a href="{{ route('products.edit', ['id' => $product->id]) }}"
-                                        class="btn btn-info">Sửa</a>
+                                        <a href="{{ route('products.edit', ['id' => $product->id]) }}"
+                                            class="btn btn-info">Sửa</a>
                                     {{-- @endcan --}}
                                     {{-- @can('product_delete') --}}
-                                    <a href="{{ route('products.delete', ['id' => $product->id]) }}"
-                                        data-url="{{ route('products.delete', ['id' => $product->id]) }}"
-                                        class="btn btn-primary action_delete">Xóa</a>
+                                        <a href="{{ route('products.delete', ['id' => $product->id]) }}"
+                                            data-url="{{ route('products.delete', ['id' => $product->id]) }}"
+                                            class="btn btn-primary action_delete">Xóa</a>
                                     {{-- @endcan --}}
                                 </td>
                             </tr>

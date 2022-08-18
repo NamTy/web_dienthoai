@@ -12,7 +12,7 @@
             <div class="col-6">
                 <form action="{{ route('products.import') }}" method="post" enctype="multipart/form-data">
                     @csrf
-                    <input type="file" name="file_import" accept="xlsx">
+                    <input type="file" name="file" accept="xlsx">
                     <input type="submit" value="Nhập dữ liệu" name="import_csv" class="btn btn-secondary">
                 </form>
             </div>

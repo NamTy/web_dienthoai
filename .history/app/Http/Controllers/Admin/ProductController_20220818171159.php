@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Requests\ProductAddRequest;
 use App\Imports\ExcelImports;
-use App\Imports\ImportarExcel;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\ProductImage;
@@ -15,7 +14,7 @@ use App\Traits\StorageImageTrait;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
-use Excel;
+
 class ProductController extends Controller
 {
     private $products;
@@ -145,8 +144,6 @@ class ProductController extends Controller
     public function import_scv(Request $request)
     {
         $path = $request->file('file_import')->getRealPath();
-        // dd($path);
-        Excel::import(new ImportarExcel, $path);
-        return back();
+        Excel::import(new ExcelImports, $path);
     }
 }

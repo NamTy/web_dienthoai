@@ -98,7 +98,8 @@ Route::prefix('/admin')->group(function () {
         Route::get('/edit/{id}', [ProductController::class, 'edit'])->name('products.edit')->can('edit_product');
         Route::post('/edit/{id}', [ProductController::class, 'update'])->name('products.update');
         Route::get('/delete/{id}', [ProductController::class, 'delete'])->name('products.delete')->can('delete_product');
-        Route::post('/import/', [ProductController::class, 'import_scv'])->name('products.import');
+        Route::post('/import/{id}', [ProductController::class, 'import_scv'])->name('products.import');
+        });
     });
     Route::prefix('/slider')->group(function () {
         Route::get('/', [SliderController::class, 'index'])->name('sliders.slider')->can('list_slider');

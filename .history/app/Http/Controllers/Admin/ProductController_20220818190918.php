@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Requests\ProductAddRequest;
 use App\Imports\ExcelImports;
-use App\Imports\ImportarExcel;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\ProductImage;

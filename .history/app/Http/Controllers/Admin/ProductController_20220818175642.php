@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Requests\ProductAddRequest;
 use App\Imports\ExcelImports;
-use App\Imports\ImportarExcel;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\ProductImage;
@@ -146,7 +145,7 @@ class ProductController extends Controller
     {
         $path = $request->file('file_import')->getRealPath();
         // dd($path);
-        Excel::import(new ImportarExcel, $path);
+        Excel::import(new ExcelImports, $path);
         return back();
     }
 }
