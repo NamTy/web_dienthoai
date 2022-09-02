@@ -18,7 +18,6 @@ return [
         'done_order',
         'order',
         'insurance',
-        'contact',
 
     ],
     'module_childrent' =>[

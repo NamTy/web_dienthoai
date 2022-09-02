@@ -139,8 +139,8 @@ Route::prefix('/admin')->group(function () {
         Route::post('/store', [AdminPermissionController::class, 'store'])->name('permissions.store');
     });
     Route::prefix('blog')->group(function () {
-        Route::get('/', [AdminBlogController::class, 'index'])->name('blogs.blog');
-        Route::get('/create', [AdminBlogController::class, 'create'])->name('blogs.create');
+        Route::get('/', [AdminBlogController::class, 'index'])->name('blogs.blog')->can('blog_list');
+        Route::get('/create', [AdminBlogController::class, 'create'])->name('blogs.create')->can('blog_add');
         Route::post('/store', [AdminBlogController::class, 'store'])->name('blogs.store');
         Route::get('/edit/{id}', [AdminBlogController::class, 'edit'])->name('blogs.edit');
         Route::post('/update/{id}', [AdminBlogController::class, 'update'])->name('blogs.update');
@@ -158,6 +158,7 @@ Route::prefix('/admin')->group(function () {
         Route::get('/report', [AdminReportController::class, 'view'])->name('report.view');
         Route::post('/report', [AdminReportController::class, 'getReport'])->name('report.getReport');
         Route::get('/print-report/{DateTimeBefore}/{DateTimeAfter}', [AdminReportController::class, 'print_report'])->name('report.print');
+
         Route::post('/product', [AdminReportController::class, 'getReportProduct'])->name('report.getProduct');
         Route::get('/report-product/{DateTimeBefore}/{DateTimeAfter}', [AdminReportController::class, 'print_product'])->name('report.Printproduct');
 

@@ -92,7 +92,7 @@ class AdminReportController extends Controller
             ->orderBy('qty','desc')
             ->get();
         // dd(DB::getQueryLog());
-        // dd($productsQty);
+        dd($productsQty);
         return view('admin.reports.report', compact('productsQty', 'DateTimeBeforeFormat', 'DateTimeAfterFormat'));
     }
     /* End hiển thị truy xuất sản bán được theo thời gian và sắp xếp sản phẩm bán chạy nhất */

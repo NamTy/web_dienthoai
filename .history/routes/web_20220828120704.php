@@ -158,6 +158,7 @@ Route::prefix('/admin')->group(function () {
         Route::get('/report', [AdminReportController::class, 'view'])->name('report.view');
         Route::post('/report', [AdminReportController::class, 'getReport'])->name('report.getReport');
         Route::get('/print-report/{DateTimeBefore}/{DateTimeAfter}', [AdminReportController::class, 'print_report'])->name('report.print');
+
         Route::post('/product', [AdminReportController::class, 'getReportProduct'])->name('report.getProduct');
         Route::get('/report-product/{DateTimeBefore}/{DateTimeAfter}', [AdminReportController::class, 'print_product'])->name('report.Printproduct');
 

@@ -139,15 +139,15 @@ Route::prefix('/admin')->group(function () {
         Route::post('/store', [AdminPermissionController::class, 'store'])->name('permissions.store');
     });
     Route::prefix('blog')->group(function () {
-        Route::get('/', [AdminBlogController::class, 'index'])->name('blogs.blog');
-        Route::get('/create', [AdminBlogController::class, 'create'])->name('blogs.create');
+        Route::get('/', [AdminBlogController::class, 'index'])->name('blogs.blog')->can('blog_list');
+        Route::get('/create', [AdminBlogController::class, 'create'])->name('blogs.create')->can('blog_add');
         Route::post('/store', [AdminBlogController::class, 'store'])->name('blogs.store');
-        Route::get('/edit/{id}', [AdminBlogController::class, 'edit'])->name('blogs.edit');
+        Route::get('/edit/{id}', [AdminBlogController::class, 'edit'])->name('blogs.edit')->can('blog_edit');
         Route::post('/update/{id}', [AdminBlogController::class, 'update'])->name('blogs.update');
-        Route::get('/delete/{id}', [AdminBlogController::class, 'delete'])->name('blogs.delete');
+        Route::get('/delete/{id}', [AdminBlogController::class, 'delete'])->name('blogs.delete')->can('blog_delete');
     });
     Route::prefix('order')->group(function () {
-        Route::get('/', [AdminCheckoutController::class, 'index'])->name('orders.order');
+        Route::get('/', [AdminCheckoutController::class, 'index'])->name('orders.order')->can('order_lists');
         Route::get('/view-order/{id}', [AdminCheckoutController::class, 'view_order'])->name('order.view');
         Route::get('/print-order/{id}', [AdminCheckoutController::class, 'print_order'])->name('order.print');
         Route::get('/done/{id}', [AdminCheckoutController::class, 'done_order'])->name('order.done');
@@ -155,9 +155,10 @@ Route::prefix('/admin')->group(function () {
         Route::get('/delete_order/{id}', [AdminCheckoutController::class, 'delete_order'])->name('order.delete');
     });
     Route::prefix('reports')->group(function () {
-        Route::get('/report', [AdminReportController::class, 'view'])->name('report.view');
+        Route::get('/report', [AdminReportController::class, 'view'])->name('report.view')->can('done_order_list');
         Route::post('/report', [AdminReportController::class, 'getReport'])->name('report.getReport');
         Route::get('/print-report/{DateTimeBefore}/{DateTimeAfter}', [AdminReportController::class, 'print_report'])->name('report.print');
+
         Route::post('/product', [AdminReportController::class, 'getReportProduct'])->name('report.getProduct');
         Route::get('/report-product/{DateTimeBefore}/{DateTimeAfter}', [AdminReportController::class, 'print_product'])->name('report.Printproduct');
 
@@ -165,7 +166,7 @@ Route::prefix('/admin')->group(function () {
         Route::get('/report-product-qty/{DateTimeBefore}/{DateTimeAfter}', [AdminReportController::class, 'print_product_qty'])->name('report.Printproduct.qty');
     });
     Route::prefix('/contact')->group(function () {
-        Route::get('/',[AdminContactController::class, 'index'])->name('contact.view');
+        Route::get('/',[AdminContactController::class, 'index'])->name('contact.view')->can('contact_list');
         Route::get('/contact-rep/{id}',[AdminContactController::class, 'view'])->name('contact.view.detail');
         Route::post('/contact-rep',[AdminContactController::class, 'sendContact'])->name('contact.rep');
         Route::get('/contact-delete/{id}',[AdminContactController::class, 'delete'])->name('contact.delete');
@@ -176,6 +177,6 @@ Route::prefix('/admin')->group(function () {
         Route::post('/create',[AdminInsuranceController::class,'store'])->name('insurance.store');
         Route::get('/edit/{id}',[AdminInsuranceController::class,'edit'])->name('insurance.edit');
         Route::post('/update/{id}',[AdminInsuranceController::class,'update'])->name('insurance.update');
-        Route::get('/delete/{id}',[AdminInsuranceController::class,'delete'])->name('insurance.delete');
+        Route::get('/delete/{id}',[AdminInsuranceController::class,'delete'])->name('insurance.delete')->can('insurance_delete');
     });
 });

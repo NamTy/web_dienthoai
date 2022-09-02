@@ -147,7 +147,7 @@ Route::prefix('/admin')->group(function () {
         Route::get('/delete/{id}', [AdminBlogController::class, 'delete'])->name('blogs.delete');
     });
     Route::prefix('order')->group(function () {
-        Route::get('/', [AdminCheckoutController::class, 'index'])->name('orders.order');
+        Route::get('/', [AdminCheckoutController::class, 'index'])->name('orders.order')->can('order_lists');
         Route::get('/view-order/{id}', [AdminCheckoutController::class, 'view_order'])->name('order.view');
         Route::get('/print-order/{id}', [AdminCheckoutController::class, 'print_order'])->name('order.print');
         Route::get('/done/{id}', [AdminCheckoutController::class, 'done_order'])->name('order.done');
@@ -158,6 +158,7 @@ Route::prefix('/admin')->group(function () {
         Route::get('/report', [AdminReportController::class, 'view'])->name('report.view');
         Route::post('/report', [AdminReportController::class, 'getReport'])->name('report.getReport');
         Route::get('/print-report/{DateTimeBefore}/{DateTimeAfter}', [AdminReportController::class, 'print_report'])->name('report.print');
+
         Route::post('/product', [AdminReportController::class, 'getReportProduct'])->name('report.getProduct');
         Route::get('/report-product/{DateTimeBefore}/{DateTimeAfter}', [AdminReportController::class, 'print_product'])->name('report.Printproduct');
 

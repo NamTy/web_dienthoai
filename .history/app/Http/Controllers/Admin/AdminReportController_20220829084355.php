@@ -85,14 +85,14 @@ class AdminReportController extends Controller
 
         $DateTimeBeforeFormat = Carbon::parse($this->DateTimeBefore)->format('Y-m-d H:h:s');;
         $DateTimeAfterFormat = Carbon::parse($this->DateTimeAfter)->format('Y-m-d H:h:s');;
-        // DB::enableQueryLog();
+        DB::enableQueryLog();
         $productsQty =  OrderDetail::whereBetween('updated_at', [$this->DateTimeBefore, $this->DateTimeAfter])
             ->select('product_id', 'product_name', 'product_discount', OrderDetail::raw('SUM(product_qty) as qty'))
             ->groupBy('product_id', 'product_name', 'product_discount')
             ->orderBy('qty','desc')
             ->get();
-        // dd(DB::getQueryLog());
-        // dd($productsQty);
+        dd(DB::getQueryLog());
+        dd($productsQty);
         return view('admin.reports.report', compact('productsQty', 'DateTimeBeforeFormat', 'DateTimeAfterFormat'));
     }
     /* End hiển thị truy xuất sản bán được theo thời gian và sắp xếp sản phẩm bán chạy nhất */

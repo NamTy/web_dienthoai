@@ -14,11 +14,10 @@ return [
         'role',
         'permission',
         // =====
-        'blog',
-        'done_order',
-        'order',
-        'insurance',
-        'contact',
+        'blogs',
+        'done_orders',
+        'orders',
+        'insurances',
 
     ],
     'module_childrent' =>[
